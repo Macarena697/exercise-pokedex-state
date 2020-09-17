@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import pokemons from './data';
+import HandleClickNext from './HandleClickNext';
 import PokemonProfile from './PokemonProfile';
 
 class App extends React.Component {
@@ -13,6 +14,9 @@ class App extends React.Component {
   }
 
   handleClick = () => {
+    this.state.indexDePokemon === pokemons.length - 1 ?
+      console.log('Nao tem mais') :
+    
     this.setState((estadoAnterior, _props) => ({
       indexDePokemon: estadoAnterior.indexDePokemon + 1
     }))
@@ -25,7 +29,7 @@ class App extends React.Component {
           <PokemonProfile pokemons={pokemons[this.state.indexDePokemon]} />
         </div>
         <div>
-          <button className="button-next" onClick={this.handleClick}>SIGUENTE</button>
+          <HandleClickNext handleClick={this.handleClick}/>
         </div>
       </div>
       
